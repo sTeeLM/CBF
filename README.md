@@ -9,7 +9,7 @@
 
 然后从镜像里捞文件。但是，我的硬盘有14T，我没有任何额外地方存放14T的硬盘镜像T_T
 
-如果直接从硬盘上copy，通常的工具，碰到坏道就会报错退出，从而即使有一点点错误，也要丢弃整个文件
+如果直接从硬盘上copy单个文件，通常的工具，碰到坏道就会报错退出，从而即使有一点点错误，也要丢弃整个文件
 
 这个工具这时候就排上用场了，我用这个工具直接从硬盘上把文件忽略坏块读出来，然后
 
@@ -30,7 +30,7 @@ The standard approach taught in textbooks is to use a tool like ddrescue to firs
 
 Then grab the files from the image. However, my hard drive has 14T and I don’t have any extra place to store the 14T hard drive image T_T
 
-If you copy directly from the hard disk, ordinary tools will report an error and exit when encountering bad sectors, 
+If you copy single file directly from the hard disk, ordinary tools will report an error and exit when encountering bad sectors, 
 
 so even if there is a little error, the entire file will be discarded.
 
