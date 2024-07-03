@@ -19,3 +19,20 @@
 没啥，就是先用大缓冲区读文件，出错了逐个扇区读，错的扇区补0，这样既能保证速度又能较好处理坏扇区，就这一点点技巧。。
 ## 还有什么可能的改进
 读取超时应该是可设置的，用异步IO可以实现，当前也能用，不想折腾了吧
+
+# A tool used to retrieve files from hard drives with bad sectors
+I have a large hard drive for backup, which contains a large number of RAR-packaged files, and a 15% recovery record is added to each file.
+
+It’s been a long time, and the hard drive has some bad sectors.
+
+The standard approach taught in textbooks is to use a tool like ddrescue to first copy the entire hard disk into an image.
+
+Then grab the files from the image. However, my hard drive has 14T and I don’t have any extra place to store the 14T hard drive image T_T
+
+If you copy directly from the hard disk, ordinary tools will report an error and exit when encountering bad sectors, 
+
+so even if there is a little error, the entire file will be discarded.
+
+This tool comes in handy at this time. I use this tool to read files directly from the hard disk ignoring bad blocks, and then
+
+Recover files using rar recovery records
