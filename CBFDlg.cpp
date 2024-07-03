@@ -56,6 +56,7 @@ CCBFDlg::CCBFDlg(CWnd* pParent /*=nullptr*/)
 	, m_strSrcFile(_T(""))
 	, m_strDstFile(_T(""))
 	, m_hThread(NULL)
+	, m_strSrcFileName(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -123,6 +124,8 @@ BOOL CCBFDlg::OnInitDialog()
 	m_ctlErrorList.InsertColumn(1, strCol, 0, 100);
 	strCol.LoadString(IDS_START);
 	m_btnStartStop.SetWindowText(strCol);
+	strCol.LoadString(IDS_DIG_CAPTION_STOP);
+	SetWindowText(strCol);
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -198,6 +201,7 @@ void CCBFDlg::OnBnClickedButtonSrcFile()
 	if (dlgOpen.DoModal() == IDOK) {
 		this->m_strSrcFile = dlgOpen.GetPathName();
 		this->UpdateData(FALSE);
+		m_strSrcFileName = dlgOpen.GetFileName();
 	}
 }
 
@@ -281,8 +285,8 @@ LRESULT  CCBFDlg::OnUpdateProgress(WPARAM wProgress, LPARAM lDone)
 	CString strCaption;
 	if (!lDone) {
 		m_ctlProgress.SetPos((INT)wProgress);
-		strCaption.Format(_T("%d%%"), (INT)wProgress);
-		this->SetWindowText((LPCTSTR)strCaption);
+		strCaption.Format(IDS_DIG_CAPTION_RUNING, (INT)wProgress,(LPCTSTR)m_strSrcFileName );
+		SetWindowText((LPCTSTR)strCaption);
 	}
 	else {
 		m_ctlProgress.SetPos(0);
@@ -307,6 +311,8 @@ LRESULT  CCBFDlg::OnUpdateProgress(WPARAM wProgress, LPARAM lDone)
 		GetDlgItem(IDC_BUTTON_SRC_FILE)->EnableWindow();
 		GetDlgItem(IDC_BUTTON_DST_FILE)->EnableWindow();
 		m_Context.Reset();
+		strCaption.Format(IDS_DIG_CAPTION_STOP);
+		SetWindowText((LPCTSTR)strCaption);
 	}
 	return 0;
 }

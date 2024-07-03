@@ -134,6 +134,7 @@ public:
 protected:
 	CString m_strSrcFile;
 	CString m_strDstFile;
+	CString m_strSrcFileName;
 	CListCtrl m_ctlErrorList;
 	HANDLE m_hThread;
 	static DWORD WINAPI fnCopyFunction(_In_ LPVOID lpParameter);

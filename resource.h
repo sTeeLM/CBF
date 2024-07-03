@@ -11,6 +11,7 @@
 #define IDS_START                       104
 #define IDS_CANCEL                      105
 #define IDS_START_THREAD_ERROR          106
+#define IDS_DIG_CAPTION_RUNING          107
 #define IDS_THREAD_END_STATE_OK         108
 #define IDS_THREAD_END_STATE_OPEN_SRC_ERROR 109
 #define IDS_THREAD_END_STATE_OPEN_DST_ERROR 110
@@ -18,6 +19,8 @@
 #define IDS_THREAD_END_STATE_GET_SRC_SIZE_ERROR 112
 #define IDS_THREAD_END_STATE_DISK_FULL  113
 #define IDS_THREAD_END_STATE_USER_CANCEL 114
+#define IDS_DIG_CAPTION_RUNING2         115
+#define IDS_DIG_CAPTION_STOP            115
 #define IDR_MAINFRAME                   128
 #define IDC_EDIT_SRC_FILE               1000
 #define IDC_EDIT_DST_FILE               1001
